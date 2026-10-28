@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 1: HTML Basics & Syntax Guide</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.2);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --code-bg: #090d16;
+            --border: #334155;
+            --success: #4ade80;
+            --warning: #fbbf24;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--accent-glow);
+            color: var(--accent);
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            border: 1px solid var(--accent);
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .section-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.75rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .code-box {
+            background-color: var(--code-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
+            color: #e2e8f0;
+            overflow-x: auto;
+            margin-bottom: 1rem;
+        }
+
+        .preview-box {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 1rem;
+        }
+
+        .preview-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        ul, ol {
+            margin-left: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .tag-token {
+            color: #f43f5e;
+            font-weight: bold;
+        }
+
+        .attr-token {
+            color: #fbbf24;
+        }
+
+        .val-token {
+            color: #4ade80;
+        }
+
+        .comment-token {
+            color: #64748b;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <span class="badge">DAY 1 FRONTEND &bull; LESSON 01</span>
+            <h1>Introduction to HTML & Syntax</h1>
+            <p class="subtitle">Understanding HyperText Markup Language, Elements, Tags, Nesting, and Comments</p>
+        </header>
+
+        <!-- SECTION 1: WHAT IS HTML? -->
+        <div class="section-card">
+            <h2>1. What is HTML?</h2>
+            <p>
+                <strong>HTML</strong> stands for <span class="highlight">HyperText Markup Language</span>.
+                It is the standard markup language used by web browsers worldwide to structure and display content on the World Wide Web.
+            </p>
+            <ul>
+                <li><strong>HyperText:</strong> Text containing links to other texts or multimedia files.</li>
+                <li><strong>Markup:</strong> Special symbols and tags annotating raw text to instruct browsers on formatting and structure.</li>
+                <li><strong>Language:</strong> A standardized syntactic system agreed upon by the W3C and WHATWG consortiums.</li>
+            </ul>
+            <div class="preview-box">
+                <div class="preview-title">Important Fact</div>
+                <p>HTML is <strong>NOT</strong> a programming language! It has no variables, loops, conditionals, or computational logic. It is a declarative structural markup language.</p>
+            </div>
+        </div>
+
+        <!-- SECTION 2: ANATOMY OF AN HTML ELEMENT -->
+        <div class="section-card">
+            <h2>2. Anatomy of an HTML Element</h2>
+            <p>An HTML element is generally composed of three primary parts: an <strong>opening tag</strong>, the <strong>inner content</strong>, and a <strong>closing tag</strong>.</p>
+            
+            <div class="code-box">
+                <span class="tag-token">&lt;p&gt;</span>Hello, World! Welcome to Web Development.<span class="tag-token">&lt;/p&gt;</span>
+                <br>
+                <span class="comment-token">&lt;!-- &uarr; Opening Tag &emsp; &uarr; Content &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&uarr; Closing Tag --&gt;</span>
+            </div>
+
+            <ul>
+                <li><strong class="highlight">Opening Tag:</strong> Tells the browser where the element begins (e.g., <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code>).</li>
+                <li><strong class="highlight">Content:</strong> The actual text or nested elements rendered to the user.</li>
+                <li><strong class="highlight">Closing Tag:</strong> Tells the browser where the element ends. Always marked by a forward slash (<code>&lt;/p&gt;</code>).</li>
+            </ul>
+        </div>
+
+        <!-- SECTION 3: VOID / SELF-CLOSING ELEMENTS -->
+        <div class="section-card">
+            <h2>3. Void (Self-Closing) Elements</h2>
+            <p>Some elements do not have inner content or closing tags. These are called <strong>void elements</strong> (or self-closing elements). They describe standalone items.</p>
+            
+            <div class="code-box">
+                <span class="tag-token">&lt;hr&gt;</span> <span class="comment-token">&lt;!-- Horizontal thematic break line --&gt;</span><br>
+                <span class="tag-token">&lt;br&gt;</span> <span class="comment-token">&lt;!-- Line break / newline --&gt;</span><br>
+                <span class="tag-token">&lt;img <span class="attr-token">src</span>=<span class="val-token">"photo.jpg"</span> <span class="attr-token">alt</span>=<span class="val-token">"A mountain"</span>&gt;</span> <span class="comment-token">&lt;!-- Image embed --&gt;</span><br>
+                <span class="tag-token">&lt;input <span class="attr-token">type</span>=<span class="val-token">"text"</span> <span class="attr-token">placeholder</span>=<span class="val-token">"Type here..."</span>&gt;</span> <span class="comment-token">&lt;!-- Text field --&gt;</span>
+            </div>
+
+            <p><em>Note: In modern HTML5, writing <code>&lt;br&gt;</code> is preferred over the older XHTML style <code>&lt;br /&gt;</code>.</em></p>
+        </div>
+
+        <!-- SECTION 4: ELEMENT NESTING & HIERARCHY -->
+        <div class="section-card">
+            <h2>4. Element Nesting & Hierarchy</h2>
+            <p>HTML elements can be placed inside other elements. This is known as <strong>nesting</strong>. Properly nested elements create a clean parent-child hierarchy forming the <strong>DOM Tree</strong>.</p>
+            
+            <div class="code-box">
+                <span class="comment-token">&lt;!-- CORRECT NESTING: Last opened, first closed (LIFO) --&gt;</span><br>
+                <span class="tag-token">&lt;p&gt;</span>This text is <span class="tag-token">&lt;strong&gt;</span>very important<span class="tag-token">&lt;/strong&gt;</span> for learners.<span class="tag-token">&lt;/p&gt;</span>
+                <br><br>
+                <span class="comment-token">&lt;!-- INCORRECT NESTING (WRONG! Overlapping tags): --&gt;</span><br>
+                <span class="tag-token">&lt;p&gt;</span>This text is <span class="tag-token">&lt;strong&gt;</span>badly nested.<span class="tag-token">&lt;/p&gt;</span><span class="tag-token">&lt;/strong&gt;</span>
+            </div>
+
+            <div class="preview-box">
+                <div class="preview-title">Live Preview</div>
+                <p>This text is <strong>very important</strong> for learners.</p>
+            </div>
+        </div>
+
+        <!-- SECTION 5: WHITESPACE COLLAPSING -->
+        <div class="section-card">
+            <h2>5. Whitespace Collapsing</h2>
+            <p>HTML browsers automatically collapse multiple consecutive spaces, tabs, and newlines into a <strong>single space</strong>.</p>
+            
+            <div class="code-box">
+                <span class="tag-token">&lt;p&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;Hello&emsp;&emsp;&emsp;World!<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;Multiple&emsp;&emsp;lines&emsp;&emsp;here.<br>
+                <span class="tag-token">&lt;/p&gt;</span>
+            </div>
+
+            <div class="preview-box">
+                <div class="preview-title">Live Preview (Browser collapses extra whitespace)</div>
+                <p>
+                    Hello        World!
+                    Multiple      lines      here.
+                </p>
+            </div>
+            <p>To preserve exact spacing and newlines, use the <code>&lt;pre&gt;</code> element (Preformatted text).</p>
+        </div>
+
+        <!-- SECTION 6: HTML COMMENTS -->
+        <div class="section-card">
+            <h2>6. HTML Comments</h2>
+            <p>Comments are notes left in the source code for developers. Web browsers completely ignore comments during rendering.</p>
+            
+            <div class="code-box">
+                <span class="comment-token">&lt;!-- This is a single-line HTML comment --&gt;</span><br><br>
+                <span class="comment-token">&lt;!--<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;This is a multi-line HTML comment.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;Useful for leaving documentation notes or<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;temporarily disabling code blocks during testing.<br>
+                --&gt;</span>
+            </div>
+
+            <div class="preview-box">
+                <div class="preview-title">Security Warning</div>
+                <p>Never put sensitive information (passwords, private API keys, client data) inside HTML comments! Anyone can right-click the page and select <strong>"View Page Source"</strong> to read your comments.</p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

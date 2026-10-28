@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 1: HTML Attributes & Comments Mastery</title>
+    <style>
+        :root {
+            --bg: #0b1120;
+            --surface: #1e293b;
+            --primary: #38bdf8;
+            --accent: #818cf8;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --code-bg: #060911;
+            --tag: #f43f5e;
+            --attr: #fbbf24;
+            --val: #4ade80;
+            --comment: #64748b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2.5rem 1rem;
+        }
+
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, #38bdf8 0%, #34d399 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.75rem;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.35rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .code-box {
+            background: var(--code-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
+            color: #e2e8f0;
+            overflow-x: auto;
+            margin-bottom: 1rem;
+        }
+
+        .tag { color: var(--tag); }
+        .attr { color: var(--attr); }
+        .val { color: var(--val); }
+        .comment { color: var(--comment); font-style: italic; }
+
+        .preview-box {
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 4px solid var(--primary);
+            padding: 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        @media (max-width: 640px) {
+            .grid-2 { grid-template-columns: 1fr; }
+        }
+
+        .item-box {
+            background: rgba(0, 0, 0, 0.25);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .item-box strong {
+            color: var(--primary);
+        }
+
+        .tooltip-target {
+            text-decoration: underline dotted var(--primary);
+            cursor: help;
+            color: var(--primary);
+        }
+
+        .input-demo {
+            background: #0f172a;
+            border: 1px solid #475569;
+            color: #fff;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            margin-right: 0.5rem;
+        }
+
+        .input-demo:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background: #1e293b;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <span class="badge">DAY 1 FRONTEND &bull; LESSON 05</span>
+            <h1>HTML Attributes & Comments</h1>
+            <p class="subtitle">Supercharging HTML elements with properties, values, behaviors, and clean documentation.</p>
+        </header>
+
+        <!-- TOPIC 1: WHAT ARE ATTRIBUTES? -->
+        <section class="card">
+            <h2>1. Anatomy of an HTML Attribute</h2>
+            <p>
+                Attributes provide additional information or configure the behavior of HTML elements.
+                They are <strong>always specified in the opening tag</strong> and usually come in <code>name="value"</code> pairs.
+            </p>
+
+            <div class="code-box">
+                <span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"https://github.com"</span> <span class="attr">target</span>=<span class="val">"_blank"</span> <span class="attr">title</span>=<span class="val">"Visit GitHub"</span><span class="tag">&gt;</span>GitHub<span class="tag">&lt;/a&gt;</span>
+                <br>
+                <span class="comment">&lt;!-- &emsp; &uarr; Attribute Name="Value" &emsp; &uarr; Another Attribute &emsp;&emsp;&emsp; &uarr; Tooltip Attribute --&gt;</span>
+            </div>
+        </section>
+
+        <!-- TOPIC 2: GLOBAL ATTRIBUTES -->
+        <section class="card">
+            <h2>2. Essential Global Attributes</h2>
+            <p>Global attributes can be used on <strong>any valid HTML5 element</strong>:</p>
+
+            <div class="grid-2">
+                <div class="item-box">
+                    <strong>id</strong>
+                    <p>Unique identifier. Must be completely unique across the entire HTML document. Used for CSS styling (<code>#id</code>) and anchor links.</p>
+                </div>
+                <div class="item-box">
+                    <strong>class</strong>
+                    <p>Reusable styling hook. Multiple elements can share the same class, and one element can possess multiple classes separated by spaces.</p>
+                </div>
+                <div class="item-box">
+                    <strong>title</strong>
+                    <p>Advisory information displayed as a native browser tooltip when the user hovers over the element.</p>
+                </div>
+                <div class="item-box">
+                    <strong>lang &amp; dir</strong>
+                    <p>Specifies the language code (e.g. <code>lang="es"</code>) and text direction (<code>dir="ltr"</code> for English, <code>dir="rtl"</code> for Arabic/Hebrew).</p>
+                </div>
+            </div>
+
+            <div class="preview-box">
+                <p>Hover over this word to see the <code>title</code> tooltip: <span class="tooltip-target" title="This native tooltip is powered by the HTML 'title' attribute!">Hover over me!</span></p>
+                <p dir="rtl" style="text-align: right; color: #4ade80;">مرحبا بكم في عالم الويب (RTL Text with <code>dir="rtl"</code>)</p>
+            </div>
+        </section>
+
+        <!-- TOPIC 3: BOOLEAN ATTRIBUTES -->
+        <section class="card">
+            <h2>3. Boolean Attributes</h2>
+            <p>
+                Boolean attributes represent true/false states. If the attribute is <strong>present</strong> on the element, its value is true; if absent, it is false.
+                Writing <code>disabled</code> is identical to <code>disabled="disabled"</code>.
+            </p>
+
+            <div class="code-box">
+                <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"text"</span> <span class="attr">placeholder</span>=<span class="val">"Active input"</span><span class="tag">&gt;</span><br>
+                <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"text"</span> <span class="attr">placeholder</span>=<span class="val">"Disabled input"</span> <span class="attr">disabled</span><span class="tag">&gt;</span>
+            </div>
+
+            <div class="preview-box">
+                <input type="text" class="input-demo" placeholder="Editable text field">
+                <input type="text" class="input-demo" placeholder="Disabled field" disabled>
+            </div>
+        </section>
+
+        <!-- TOPIC 4: CUSTOM DATA ATTRIBUTES -->
+        <section class="card">
+            <h2>4. Custom Data Attributes (data-*)</h2>
+            <p>
+                HTML5 permits storing private custom data on standard HTML elements using the <code>data-*</code> prefix.
+                This is heavily used by JavaScript and modern frameworks.
+            </p>
+
+            <div class="code-box">
+                <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="val">"user-card"</span> <span class="attr">data-user-id</span>=<span class="val">"1048"</span> <span class="attr">data-role</span>=<span class="val">"admin"</span> <span class="attr">data-active</span>=<span class="val">"true"</span><span class="tag">&gt;</span><br>
+                &nbsp;&nbsp;Sameer Mohammed<br>
+                <span class="tag">&lt;/div&gt;</span>
+            </div>
+        </section>
+
+        <!-- TOPIC 5: COMMENTS BEST PRACTICES -->
+        <section class="card">
+            <h2>5. Commenting Best Practices & Security</h2>
+            <p>
+                Comments allow teams to document structure and temporarily isolate bugs. Always follow professional conventions:
+            </p>
+
+            <div class="code-box">
+                <span class="comment">&lt;!-- ========================================== --&gt;</span><br>
+                <span class="comment">&lt;!-- SECTION: MAIN HERO BANNER                  --&gt;</span><br>
+                <span class="comment">&lt;!-- ========================================== --&gt;</span><br>
+                <span class="tag">&lt;section</span> <span class="attr">id</span>=<span class="val">"hero"</span><span class="tag">&gt;</span><br>
+                &nbsp;&nbsp;<span class="tag">&lt;h1&gt;</span>Frontend Mastery<span class="tag">&lt;/h1&gt;</span><br>
+                <span class="tag">&lt;/section&gt;</span><br>
+                <span class="comment">&lt;!-- /#hero --&gt;</span>
+            </div>
+
+            <div class="preview-box" style="border-left-color: #ef4444;">
+                <strong style="color: #f87171;">SECURITY WARNING:</strong> HTML comments are completely readable by anyone who views the page source or inspects elements. Never store passwords, internal IP addresses, API secrets, or confidential business notes in HTML comments!
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>

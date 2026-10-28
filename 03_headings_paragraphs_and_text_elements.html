@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 1: Headings, Paragraphs & Text Structure</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --surface: #1e293b;
+            --surface-accent: #334155;
+            --primary: #38bdf8;
+            --text-main: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border: #334155;
+            --code-bg: #090d16;
+            --danger: #f87171;
+            --success: #4ade80;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2.5rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .main-title {
+            font-size: 2.25rem;
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .card-heading {
+            font-size: 1.35rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .code-block {
+            background: var(--code-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
+            color: #e2e8f0;
+            overflow-x: auto;
+            margin-bottom: 1.25rem;
+        }
+
+        .preview-box {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--primary);
+            padding: 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 1rem;
+        }
+
+        .preview-box h1, 
+        .preview-box h2, 
+        .preview-box h3, 
+        .preview-box h4, 
+        .preview-box h5, 
+        .preview-box h6 {
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .note-box {
+            background: rgba(248, 113, 113, 0.1);
+            border-left: 4px solid var(--danger);
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+            color: #fca5a5;
+            font-size: 0.95rem;
+            margin-top: 1rem;
+        }
+
+        .tip-box {
+            background: rgba(74, 222, 128, 0.1);
+            border-left: 4px solid var(--success);
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+            color: #86efac;
+            font-size: 0.95rem;
+            margin-top: 1rem;
+        }
+
+        pre.ascii-art {
+            background: var(--code-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            color: var(--primary);
+            font-family: monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <span class="badge">DAY 1 FRONTEND &bull; LESSON 03</span>
+            <h1 class="main-title">Headings, Paragraphs & Text Hierarchy</h1>
+            <p class="subtitle">Structuring text content for readability, accessibility, and SEO ranking.</p>
+        </header>
+
+        <!-- TOPIC 1: HEADING LEVELS -->
+        <section class="card">
+            <h2 class="card-heading">1. Heading Hierarchy (h1 to h6)</h2>
+            <p>
+                HTML offers six levels of section headings from <code>&lt;h1&gt;</code> (most important) down to <code>&lt;h6&gt;</code> (least important).
+                Headings are <strong>block-level elements</strong> that establish the structural outline of a webpage.
+            </p>
+
+            <div class="code-block">
+&lt;h1&gt;Level 1 Heading - Main Document Title&lt;/h1&gt;
+&lt;h2&gt;Level 2 Heading - Major Section&lt;/h2&gt;
+&lt;h3&gt;Level 3 Heading - Sub-section&lt;/h3&gt;
+&lt;h4&gt;Level 4 Heading - Deep Sub-topic&lt;/h4&gt;
+&lt;h5&gt;Level 5 Heading - Minor Sub-topic&lt;/h5&gt;
+&lt;h6&gt;Level 6 Heading - Least Prominent Heading&lt;/h6&gt;
+            </div>
+
+            <div class="preview-box">
+                <h1 style="font-size: 2rem;">Level 1 Heading</h1>
+                <h2 style="font-size: 1.6rem;">Level 2 Heading</h2>
+                <h3 style="font-size: 1.3rem;">Level 3 Heading</h3>
+                <h4 style="font-size: 1.1rem;">Level 4 Heading</h4>
+                <h5 style="font-size: 0.95rem;">Level 5 Heading</h5>
+                <h6 style="font-size: 0.85rem;">Level 6 Heading</h6>
+            </div>
+
+            <div class="note-box">
+                <strong>CRITICAL SEO & ACCESSIBILITY RULE:</strong> Never use more than <strong>one &lt;h1&gt;</strong> per webpage! 
+                The <code>&lt;h1&gt;</code> represents the single overarching subject of the page. Do NOT skip heading levels (e.g., jumping from <code>&lt;h2&gt;</code> straight to <code>&lt;h4&gt;</code>) because screen reader users rely on headings to navigate.
+            </div>
+        </section>
+
+        <!-- TOPIC 2: PARAGRAPHS -->
+        <section class="card">
+            <h2 class="card-heading">2. Paragraphs (&lt;p&gt;)</h2>
+            <p>
+                The <code>&lt;p&gt;</code> element represents a paragraph of text. Browsers automatically add vertical margin before and after every paragraph to separate blocks of text cleanly.
+            </p>
+
+            <div class="code-block">
+&lt;p&gt;Frontend engineering begins with understanding the document tree.&lt;/p&gt;
+&lt;p&gt;HTML delivers meaning and structure, while CSS delivers presentation.&lt;/p&gt;
+            </div>
+
+            <div class="preview-box">
+                <p>Frontend engineering begins with understanding the document tree.</p>
+                <p>HTML delivers meaning and structure, while CSS delivers presentation.</p>
+            </div>
+        </section>
+
+        <!-- TOPIC 3: LINE BREAK & HORIZONTAL RULE -->
+        <section class="card">
+            <h2 class="card-heading">3. Line Break (&lt;br&gt;) vs. Horizontal Rule (&lt;hr&gt;)</h2>
+            <p>
+                Both <code>&lt;br&gt;</code> and <code>&lt;hr&gt;</code> are self-closing void elements.
+            </p>
+            <ul>
+                <li><code>&lt;br&gt;</code>: Inserts a simple line break without creating a new paragraph block. Use sparingly (e.g. for postal addresses or poetry).</li>
+                <li><code>&lt;hr&gt;</code>: Represents a <em>thematic break</em> between paragraph-level topics (rendered as a horizontal line).</li>
+            </ul>
+
+            <div class="code-block">
+&lt;!-- Postal Address Example with &lt;br&gt; --&gt;
+&lt;p&gt;
+    123 Web Dev Avenue&lt;br&gt;
+    Silicon Valley, CA 94025&lt;br&gt;
+    United States
+&lt;/p&gt;
+
+&lt;!-- Thematic Break with &lt;hr&gt; --&gt;
+&lt;hr&gt;
+
+&lt;p&gt;A fresh topic begins here after the horizontal rule.&lt;/p&gt;
+            </div>
+
+            <div class="preview-box">
+                <p>
+                    123 Web Dev Avenue<br>
+                    Silicon Valley, CA 94025<br>
+                    United States
+                </p>
+                <hr style="border: 0; border-top: 1px solid var(--border); margin: 1rem 0;">
+                <p>A fresh topic begins here after the horizontal rule.</p>
+            </div>
+
+            <div class="tip-box">
+                <strong>Best Practice:</strong> Never use <code>&lt;br&gt;&lt;br&gt;&lt;br&gt;</code> to create visual spacing between sections! Always use CSS margins and padding instead.
+            </div>
+        </section>
+
+        <!-- TOPIC 4: PREFORMATTED TEXT -->
+        <section class="card">
+            <h2 class="card-heading">4. Preformatted Text (&lt;pre&gt;)</h2>
+            <p>
+                The <code>&lt;pre&gt;</code> tag displays text in a fixed-width (monospace) font and strictly preserves both spaces and line breaks exactly as typed in the source code.
+            </p>
+
+            <pre class="ascii-art">
+   /\_/\  
+  ( o.o )  -> Hello from Day 1!
+   > ^ <   -> Preserved spaces and ASCII art!
+            </pre>
+        </section>
+
+    </div>
+
+</body>
+</html>

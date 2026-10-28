@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 1: Text Formatting & Semantic Tags</title>
+    <style>
+        :root {
+            --bg: #090d16;
+            --surface: #131b2e;
+            --accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.15);
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: #22304d;
+            --code-bg: #05080e;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2.5rem 1rem;
+        }
+
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--accent-glow);
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, #38bdf8 0%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.75rem;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            color: var(--accent);
+            font-size: 1.35rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .demo-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .demo-table th, .demo-table td {
+            padding: 0.85rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .demo-table th {
+            color: var(--accent);
+            background: rgba(255, 255, 255, 0.02);
+            font-weight: 600;
+        }
+
+        .demo-table code {
+            background: var(--code-bg);
+            padding: 0.2rem 0.45rem;
+            border-radius: 4px;
+            color: #f43f5e;
+            font-size: 0.88rem;
+        }
+
+        .preview-box {
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 4px solid var(--accent);
+            padding: 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.25rem 0;
+        }
+
+        kbd {
+            background: #1e293b;
+            border: 1px solid #475569;
+            box-shadow: 0 2px 0 #0f172a;
+            border-radius: 4px;
+            padding: 0.15rem 0.45rem;
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: #38bdf8;
+        }
+
+        mark {
+            background: #fef08a;
+            color: #0f172a;
+            padding: 0.1rem 0.3rem;
+            border-radius: 2px;
+            font-weight: 600;
+        }
+
+        blockquote {
+            border-left: 4px solid #818cf8;
+            padding-left: 1rem;
+            font-style: italic;
+            color: #cbd5e1;
+            margin: 1rem 0;
+        }
+
+        blockquote cite {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <span class="badge">DAY 1 FRONTEND &bull; LESSON 04</span>
+            <h1>Text Formatting & Semantic Elements</h1>
+            <p class="subtitle">Why semantic markup matters: Writing accessible, screen-reader friendly typography.</p>
+        </header>
+
+        <!-- SECTION 1: SEMANTIC VS PRESENTATIONAL -->
+        <section class="card">
+            <h2>1. Semantic vs. Presentational Tags</h2>
+            <p>
+                In early HTML, tags like <code>&lt;b&gt;</code> and <code>&lt;i&gt;</code> were used purely for physical styling.
+                Modern HTML5 emphasizes <strong>semantics</strong>: choosing elements based on the <em>meaning</em> of the content, not how it appears on screen.
+            </p>
+
+            <table class="demo-table">
+                <thead>
+                    <tr>
+                        <th>Semantic Element</th>
+                        <th>Presentational Equivalent</th>
+                        <th>Semantic Purpose / Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>&lt;strong&gt;</code></td>
+                        <td><code>&lt;b&gt;</code></td>
+                        <td>Indicates strong importance, seriousness, or urgency (read with emphasis by screen readers).</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;em&gt;</code></td>
+                        <td><code>&lt;i&gt;</code></td>
+                        <td>Stress emphasis that changes the phonetic inflection and meaning of a sentence.</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;mark&gt;</code></td>
+                        <td>None</td>
+                        <td>Highlights text of current relevance or search result matches.</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;small&gt;</code></td>
+                        <td>None</td>
+                        <td>Side-comments, fine print, copyright statements, and legal disclaimers.</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;del&gt;</code> & <code>&lt;ins&gt;</code></td>
+                        <td><code>&lt;s&gt;</code> & <code>&lt;u&gt;</code></td>
+                        <td>Represents tracked edits: deleted text and newly inserted replacement text.</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;sub&gt;</code> & <code>&lt;sup&gt;</code></td>
+                        <td>None</td>
+                        <td>Subscripts (chemical formulas like H<sub>2</sub>O) and Superscripts (exponents like x<sup>2</sup>).</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- SECTION 2: LIVE CODE EXAMPLES -->
+        <section class="card">
+            <h2>2. Interactive Typography Showcase</h2>
+            
+            <div class="preview-box">
+                <p><strong>Strong Tag:</strong> <strong style="color: #f8fafc;">Warning:</strong> Always save your changes before pushing code.</p>
+                
+                <p><em>Emphasis Tag:</em> You <em>must</em> inspect elements to debug layouts effectively.</p>
+                
+                <p><mark>Mark Tag:</mark> Found search keyword: <mark>Frontend Architecture</mark> inside chapter 1.</p>
+                
+                <p>
+                    <del>Original Price: $99.99</del> &nbsp;
+                    <ins style="color: #4ade80;">Sale Price: $49.99</ins>
+                </p>
+
+                <p>
+                    <strong>Formulas:</strong> Water is H<sub>2</sub>O &bull; Einstein's equation is E = mc<sup>2</sup>
+                </p>
+
+                <p>
+                    <small>&copy; 2026 Sameer Mohammed. All rights reserved. Open source educational material.</small>
+                </p>
+            </div>
+        </section>
+
+        <!-- SECTION 3: QUOTES & ABBREVIATIONS -->
+        <section class="card">
+            <h2>3. Quotations, Abbreviations & Technical Terms</h2>
+            
+            <p>
+                The <code>&lt;abbr&gt;</code> element defines an abbreviation. Hovering displays the expanded title:
+            </p>
+            <div class="preview-box">
+                The <abbr title="World Wide Web Consortium">W3C</abbr> develops open web standards for 
+                <abbr title="HyperText Markup Language">HTML</abbr> and <abbr title="Cascading Style Sheets">CSS</abbr>.
+            </div>
+
+            <p>Long quotations belong inside <code>&lt;blockquote&gt;</code> with an optional <code>&lt;cite&gt;</code>:</p>
+            <div class="preview-box">
+                <blockquote>
+                    "Any application that can be written in JavaScript, will eventually be written in JavaScript."
+                    <cite>&mdash; Jeff Atwood (Atwood's Law)</cite>
+                </blockquote>
+            </div>
+
+            <p>Inline short quote with automatic quotation marks using <code>&lt;q&gt;</code>:</p>
+            <div class="preview-box">
+                Tim Berners-Lee famously said, <q>The power of the Web is in its universality.</q>
+            </div>
+        </section>
+
+        <!-- SECTION 4: COMPUTER CODE & KEYBOARD INPUTS -->
+        <section class="card">
+            <h2>4. Code, Keystrokes & Computer Output</h2>
+            <p>HTML provides dedicated semantic elements for technical and programming documentation:</p>
+
+            <div class="preview-box">
+                <p>Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd> to open Chrome DevTools.</p>
+                <p>Use the <code>console.log()</code> function to print runtime data.</p>
+                <p>System Response: <samp>Process finished with exit code 0</samp></p>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>

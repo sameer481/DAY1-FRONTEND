@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Document Metadata -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Day 1 Frontend Capstone Project: A clean, accessible, semantic HTML5 Developer Profile and Resume.">
+    <meta name="author" content="Sameer Mohammed">
+    <title>Sameer Mohammed &bull; Frontend Developer Profile</title>
+
+    <!-- Embedded Modern Styling -->
+    <style>
+        :root {
+            --bg-body: #0b0f19;
+            --bg-card: #151c2c;
+            --bg-card-hover: #1c253b;
+            --primary: #38bdf8;
+            --primary-glow: rgba(56, 189, 248, 0.15);
+            --secondary: #818cf8;
+            --accent: #f43f5e;
+            --text-heading: #f8fafc;
+            --text-body: #94a3b8;
+            --border-color: #243048;
+            --code-bg: #070a12;
+            --success: #34d399;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-body);
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Semantic Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            color: var(--text-heading);
+            font-size: 1.15rem;
+            text-decoration: none;
+        }
+
+        .nav-logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.25rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-body);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Profile Header */
+        header.profile-hero {
+            background: linear-gradient(180deg, var(--bg-card) 0%, rgba(21, 28, 44, 0.4) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(52, 211, 153, 0.1);
+            color: var(--success);
+            border: 1px solid rgba(52, 211, 153, 0.3);
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--text-heading);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .title-lead {
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .bio-summary {
+            max-width: 650px;
+            margin: 0 auto 1.5rem auto;
+            color: var(--text-body);
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.65rem 1.4rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #0b0f19;
+        }
+
+        .btn-primary:hover {
+            background: #7dd3fc;
+            box-shadow: 0 0 15px var(--primary-glow);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-heading);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Content Sections */
+        section {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 1.45rem;
+            color: var(--text-heading);
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.75rem;
+        }
+
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 1.25rem;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        /* Skills Badges */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .skill-tag {
+            background: rgba(56, 189, 248, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            color: var(--primary);
+            padding: 0.4rem 0.9rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Experience and Education Cards */
+        .timeline-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.35rem;
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            color: var(--text-heading);
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-family: monospace;
+        }
+
+        .timeline-sub {
+            color: var(--secondary);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Quotation Block */
+        blockquote {
+            background: rgba(129, 140, 248, 0.05);
+            border-left: 4px solid var(--secondary);
+            border-radius: 0 8px 8px 0;
+            padding: 1.25rem 1.5rem;
+            font-style: italic;
+            color: #cbd5e1;
+            margin: 1rem 0;
+        }
+
+        blockquote cite {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--secondary);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        /* Contact Details */
+        .contact-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+        }
+
+        .contact-card {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border-color);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .contact-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-body);
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-card a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border-color);
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        footer small {
+            display: block;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- SEMANTIC NAVIGATION -->
+        <nav aria-label="Main Navigation">
+            <a href="#home" class="nav-logo">&lt;<span>Sameer</span> /&gt;</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#quote">Philosophy</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- HERO HEADER (Profile Introduction) -->
+        <header id="home" class="profile-hero">
+            <div class="status-badge">
+                <span class="status-dot"></span> Available for Web Projects
+            </div>
+            
+            <h1>Sameer Mohammed</h1>
+            <p class="title-lead">Aspiring Full-Stack &amp; Frontend Software Engineer</p>
+            
+            <p class="bio-summary">
+                Passionate about crafting <mark>accessible</mark>, performant, and standards-compliant web applications.
+                Currently mastering the fundamentals of modern frontend architecture starting with pristine <strong>HTML5</strong> semantics.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                <a href="https://github.com/sameer481" target="_blank" rel="noopener noreferrer" class="btn btn-outline" title="Open Sameer's GitHub Profile in a new tab">GitHub Profile</a>
+            </div>
+        </header>
+
+        <!-- MAIN BODY CONTENT -->
+        <main>
+
+            <!-- SECTION 1: ABOUT ME -->
+            <section id="about">
+                <h2>About My Journey</h2>
+                <p>
+                    Hello! I am a developer dedicated to continuous learning and writing clean, scalable software.
+                    I believe great web engineering starts from a solid foundation: semantic HTML, responsive CSS, and resilient JavaScript.
+                </p>
+                <p>
+                    On <em>Day 1</em> of my frontend journey, I mastered the <strong>Critical Rendering Path</strong>, document trees,
+                    accessibility rules, and the vital role of semantic tags over generic <code>&lt;div&gt;</code> structures.
+                </p>
+            </section>
+
+            <!-- SECTION 2: CORE TECHNICAL SKILLS -->
+            <section id="skills">
+                <h2>Technical Toolkit</h2>
+                <p>Foundational technologies and languages I work with:</p>
+
+                <div class="skills-grid">
+                    <span class="skill-tag" data-category="frontend">HTML5 Semantics</span>
+                    <span class="skill-tag" data-category="frontend">Responsive Web Design</span>
+                    <span class="skill-tag" data-category="frontend">CSS3 Custom Properties</span>
+                    <span class="skill-tag" data-category="frontend">JavaScript (ES6+)</span>
+                    <span class="skill-tag" data-category="backend">Python 3.x</span>
+                    <span class="skill-tag" data-category="tools">Git &amp; GitHub</span>
+                    <span class="skill-tag" data-category="tools">Chrome DevTools</span>
+                    <span class="skill-tag" data-category="standards">W3C &amp; WHATWG Standards</span>
+                </div>
+            </section>
+
+            <!-- SECTION 3: EDUCATION & LEARNING TRACK -->
+            <section id="education">
+                <h2>Education &amp; Milestones</h2>
+
+                <article class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>Full-Stack &amp; Frontend Engineering Mastery</h3>
+                        <span class="timeline-date">2026 &bull; Ongoing</span>
+                    </div>
+                    <p class="timeline-sub">Daily Intensive Hands-on Coding Practice</p>
+                    <p>
+                        Building real-world projects, mastering algorithms, software architecture, web semantics, and backend integrations.
+                    </p>
+                </article>
+
+                <article class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>Python 30-Day Masterclass Series</h3>
+                        <span class="timeline-date">Completed</span>
+                    </div>
+                    <p class="timeline-sub">Advanced Python Architecture &amp; OOP</p>
+                    <p>
+                        Deep dive into OOP abstractions, name mangling, regular expressions, SIEM attack detection, and data processing.
+                    </p>
+                </article>
+            </section>
+
+            <!-- SECTION 4: INSPIRATION & PHILOSOPHY -->
+            <section id="quote">
+                <h2>Development Philosophy</h2>
+                <blockquote>
+                    "Make it work, make it right, make it fast."
+                    <cite>&mdash; Kent Beck</cite>
+                </blockquote>
+                <p>
+                    In HTML, making it right means prioritizing <abbr title="Search Engine Optimization">SEO</abbr> 
+                    and universal accessibility so the web works for everyone, everywhere.
+                </p>
+            </section>
+
+            <!-- SECTION 5: CONTACT INFORMATION -->
+            <section id="contact">
+                <h2>Connect With Me</h2>
+                <p>Feel free to reach out for collaborations, discussions, or code reviews:</p>
+
+                <ul class="contact-list">
+                    <li class="contact-card">
+                        <div class="contact-label">Email</div>
+                        <a href="mailto:sameermohammedsm145@gmail.com">sameermohammedsm145@gmail.com</a>
+                    </li>
+                    <li class="contact-card">
+                        <div class="contact-label">GitHub</div>
+                        <a href="https://github.com/sameer481" target="_blank" rel="noopener noreferrer">github.com/sameer481</a>
+                    </li>
+                    <li class="contact-card">
+                        <div class="contact-label">Location</div>
+                        <span>India (IST / UTC+5:30)</span>
+                    </li>
+                    <li class="contact-card">
+                        <div class="contact-label">Keyboard Shortcut</div>
+                        <span>Inspect with <kbd>F12</kbd> or <kbd>Ctrl+Shift+I</kbd></span>
+                    </li>
+                </ul>
+            </section>
+
+        </main>
+
+        <!-- SEMANTIC FOOTER -->
+        <footer>
+            <p>&copy; 2026 Sameer Mohammed &bull; Day 1 Frontend Project</p>
+            <small>Handcrafted with 100% pure semantic HTML5 &amp; modern CSS</small>
+        </footer>
+
+    </div>
+
+</body>
+</html>
